@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { listReservations } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
+import ReservationCards from "../reservations/ReservationCards";
+import Navigation from "./Navigation";
+import { next, previous, readableDate, today } from "../utils/date-time";
 
 /**
  * Defines the dashboard page.
@@ -8,10 +11,10 @@ import ErrorAlert from "../layout/ErrorAlert";
  *  the date for which the user wants to view reservations.
  * @returns {JSX.Element}
  */
-function Dashboard({ date }) {
+function Dashboard() {
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
-
+  const [date, setDate] = useState(today());
   useEffect(loadDashboard, [date]);
 
   function loadDashboard() {
@@ -23,14 +26,32 @@ function Dashboard({ date }) {
     return () => abortController.abort();
   }
 
+  function changeDate(event) {
+    switch (event.target.value) {
+      case "prev":
+        setDate(() => previous(date));
+        break;
+      case "next":
+        setDate(() => next(date));
+        break;
+      default:
+        setDate(() => today(date));
+        break;
+    }
+  }
+
   return (
-    <main>
-      <h1>Dashboard</h1>
-      <div className="d-md-flex mb-3">
-        <h4 className="mb-0">Reservations for date</h4>
-      </div>
+    <main className="my-3">
       <ErrorAlert error={reservationsError} />
-      {JSON.stringify(reservations)}
+      <div className="row text-center mb-3">
+        <div className="col">
+          <h4 className="mb-3">Reservations for: {readableDate(date)}</h4>
+          <Navigation onClick={changeDate} />
+        </div>
+      </div>
+      <div className="row justify-content-center">
+        <ReservationCards reservations={reservations} />
+      </div>
     </main>
   );
 }
