@@ -8,7 +8,7 @@ const path = require("path");
 
 const {
   DATABASE_URL = "postgres://srtvvctx:XMy8d8snA6mEhldk3-qflX4RZHpsHcWC@ziggy.db.elephantsql.com:5432/srtvvctx",
-  DATABASE_URL_DEVELOPMENT = "postgres://phbdifgu:hsNFlNHp34wpy8lWr8NzYHCGXbnP9dfM@ziggy.db.elephantsql.com:5432/phbdifgu",
+  DATABASE_URL_DEVELOPMENT = "postgres://uodsxjcn:Gd7XVxNyJ2-2fVr-BFkcZgvsE3uc9Bbx@queenie.db.elephantsql.com:5432/uodsxjcn",
   DATABASE_URL_TEST = "postgres://vgwvtvld:L8sr9JW0bLSqJBneykj-Au6W-Ep4AdAm@ziggy.db.elephantsql.com:5432/vgwvtvld",
   DATABASE_URL_PREVIEW = "postgres://gkjluzkx:3BHw0iPleS6Wl_agajzOFdwYNN6JUqeP@ziggy.db.elephantsql.com:5432/gkjluzkx",
   DEBUG,
