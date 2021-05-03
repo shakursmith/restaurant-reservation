@@ -44,43 +44,57 @@ function TablesForm() {
   }
 
   return (
-    <div>
+    <div className="my-3">
       <ErrorAlert error={error} />
-      <h1>New Table</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-          <label>
-            Table name:
-            <input
-              type="text"
-              name="table_name"
-              value={table.table_name}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Capacity:
-            <input
-              type="number"
-              name="capacity"
-              min="1"
-              value={table.capacity}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <h1 className="pb-3">New Table</h1>
+          <form onSubmit={submitHandler}>
+            <div className="form-group">
+              <label>
+                Table name:
+                <input
+                  type="text"
+                  name="table_name"
+                  className="form-control"
+                  value={table.table_name}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Capacity:
+                <input
+                  type="number"
+                  name="capacity"
+                  className="form-control"
+                  min="1"
+                  value={table.capacity}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
 
-        <div>
-          <input type="submit" value="Submit" />
-          <button type="button" onClick={onCancel}>
-            Cancel
-          </button>
+            <div className="pt-3">
+              <input
+                type="submit"
+                className="btn btn-primary mr-1"
+                value="Submit"
+              />
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={onCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

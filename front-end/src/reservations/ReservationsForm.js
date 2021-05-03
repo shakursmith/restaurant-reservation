@@ -91,99 +91,121 @@ function ReservationsForm({
   }
 
   return (
-    <div>
-      <ErrorAlert error={error} />
-      <h1>{location.pathname.includes("edit") ? "Edit" : "New"} Reservation</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-          <label>
-            First name:
-            <input
-              type="text"
-              name="first_name"
-              maxLength="20"
-              value={reservation.first_name}
-              onChange={changeHandler}
-              required
-            />
-          </label>
+    <div className="my-3">
+      <div className="col text-center">
+        <ErrorAlert error={error} />
+      </div>
+      <div className="row justify-content-center">
+        <div className="col-6-md">
+          <h1 className="mb-3 h2">
+            {location.pathname.includes("edit") ? "Edit" : "New"} Reservation
+          </h1>
+          <form onSubmit={submitHandler}>
+            <div className="form-group">
+              <label>
+                First name:
+                <input
+                  type="text"
+                  name="first_name"
+                  maxLength="20"
+                  className="form-control"
+                  value={reservation.first_name}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Last name:
+                <input
+                  type="text"
+                  name="last_name"
+                  maxLength="20"
+                  className="form-control"
+                  value={reservation.last_name}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Mobile number:
+                <input
+                  type="tel"
+                  name="mobile_number"
+                  placeholder="123-456-7890"
+                  className="form-control"
+                  pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
+                  value={reservation.mobile_number}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Date of reservation:
+                <input
+                  type="date"
+                  name="reservation_date"
+                  placeholder="YYYY-MM-DD"
+                  className="form-control"
+                  pattern="\d{4}-\d{2}-\d{2}"
+                  value={reservation.reservation_date}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Time of reservation
+                <input
+                  type="time"
+                  name="reservation_time"
+                  placeholder="HH:MM"
+                  className="form-control"
+                  pattern="[0-9]{2}:[0-9]{2}"
+                  value={reservation.reservation_time}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Party size:
+                <input
+                  type="number"
+                  name="people"
+                  min="1"
+                  max="50"
+                  className="form-control"
+                  value={reservation.people}
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div className="pt-3">
+              <input
+                type="submit"
+                className="btn btn-primary mr-1"
+                value="Submit"
+              />
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={onCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
-        <div>
-          <label>
-            Last name:
-            <input
-              type="text"
-              name="last_name"
-              maxLength="20"
-              value={reservation.last_name}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Mobile number:
-            <input
-              type="tel"
-              name="mobile_number"
-              placeholder="123-456-7890"
-              pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
-              value={reservation.mobile_number}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Date of reservation:
-            <input
-              type="date"
-              name="reservation_date"
-              placeholder="YYYY-MM-DD"
-              pattern="\d{4}-\d{2}-\d{2}"
-              value={reservation.reservation_date}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Time of reservation
-            <input
-              type="time"
-              name="reservation_time"
-              placeholder="HH:MM"
-              pattern="[0-9]{2}:[0-9]{2}"
-              value={reservation.reservation_time}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Party size:
-            <input
-              type="number"
-              name="people"
-              min="1"
-              max="50"
-              value={reservation.people}
-              onChange={changeHandler}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <input type="submit" value="Submit" />
-          <button type="button" onClick={onCancel}>
-            Cancel
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }

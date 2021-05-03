@@ -44,33 +44,42 @@ function ReservationSearch() {
   });
 
   return (
-    <div>
+    <div className="my-3">
       <ErrorAlert error={error} />
-      <h1>Search by mobile number</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-          <label>
-            <input
-              type="tel"
-              name="mobile_number"
-              placeholder="123-456-7890"
-              onChange={changeHandler}
-              required
-            />
-          </label>
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <h1 className="pb-3">Search by mobile number</h1>
+          <form onSubmit={submitHandler}>
+            <div>
+              <label className="w-100">
+                <input
+                  type="tel"
+                  name="mobile_number"
+                  className="mb-3 form-control"
+                  placeholder="Enter a customer's phone number"
+                  onChange={changeHandler}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <input type="submit" value="Find" className="btn btn-success" />
+              <button
+                type="button"
+                className="btn btn-secondary ml-3"
+                onClick={onCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
-        <div>
-          <input type="submit" value="Find" />
-          <button type="button" onClick={onCancel}>
-            Cancel
-          </button>
-        </div>
-      </form>
+      </div>
       <div className="row justify-content-center">
         {cards.length > 0 ? (
           cards
         ) : (
-          <p className="lead">No reservations found</p>
+          <p className="lead pt-5">No reservations found</p>
         )}
       </div>
     </div>

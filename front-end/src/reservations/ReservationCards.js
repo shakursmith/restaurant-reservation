@@ -56,7 +56,7 @@ function ReservationCards({ reservation }) {
             value={reservation.reservation_id}
             onClick={onCancel}
           >
-            Delete
+            Cancel
           </button>
         </div>
       </div>
