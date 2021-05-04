@@ -16,10 +16,7 @@ function ReservationCards({ reservation }) {
     }
   }
   return (
-    <div
-      className="card col-4-md m-3 text-center"
-      id={reservation.reservation_id}
-    >
+    <div className="card col-4-md m-3 text-center">
       <div className="card-body text-left">
         <h5 className="card-title">
           {reservation.first_name} {reservation.last_name}

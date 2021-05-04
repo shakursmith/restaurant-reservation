@@ -24,8 +24,8 @@ function SeatTable() {
     loadTables();
   }, []);
 
-  const options = tables.map((table, key) => (
-    <option type="text" key={key} value={table.table_id}>
+  const options = tables.map((table) => (
+    <option type="text" key={table.table_id} value={table.table_id}>
       {table.table_name} - {table.capacity}
     </option>
   ));

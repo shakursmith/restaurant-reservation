@@ -61,14 +61,19 @@ function Dashboard() {
         break;
     }
   }
-  const tableCards = tables.map((table, key) => (
-    <TableCards table={table} key={key} />
+  const tableCards = tables.map((table) => (
+    <TableCards table={table} key={table.table_id} />
   ));
 
-  const cards = reservations.map((reservation, key) => {
+  const cards = reservations.map((reservation) => {
     formatReservationTime(reservation);
     formatReservationDate(reservation);
-    return <ReservationCards reservation={reservation} key={key} />;
+    return (
+      <ReservationCards
+        reservation={reservation}
+        key={reservation.reservation_id}
+      />
+    );
   });
 
   return (

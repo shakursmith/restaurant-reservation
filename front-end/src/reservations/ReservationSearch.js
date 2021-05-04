@@ -37,10 +37,15 @@ function ReservationSearch() {
     submitNew(mobile_number);
   }
 
-  const cards = reservations.map((reservation, key) => {
+  const cards = reservations.map((reservation) => {
     formatReservationTime(reservation);
     formatReservationDate(reservation);
-    return <ReservationCards reservation={reservation} key={key} />;
+    return (
+      <ReservationCards
+        reservation={reservation}
+        key={reservation.reservation_id}
+      />
+    );
   });
 
   return (

@@ -15,11 +15,7 @@ function TableCards({ table }) {
     }
   }
   return (
-    <div
-      key={table.table_id}
-      className="card m-3 bg-light"
-      style={{ width: "14rem" }}
-    >
+    <div className="card m-3 bg-light" style={{ width: "14rem" }}>
       <div className="card-body">
         <h5 className="card-title">{table.table_name}</h5>
         <h6 className="card-subtitle mb-2 text-muted">
